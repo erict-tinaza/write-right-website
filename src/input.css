@@ -6,3 +6,7 @@
 .bg-blue{
     background-color: rgba(0, 204, 255, 0.368);
 }
+
+.bg-blue-900{
+    background-color: blue;
+}
