@@ -1,91 +1,77 @@
 const contentWrapperEl = document.querySelector("#content-wrapperEl");
 const eappEl = document.querySelector("#eapp-el");
-const bannerEl = document.querySelector('#banner-el');
-const creativeWritingEl = document.querySelector('#creative-writing-el');
-const readWriteEl = document.querySelector('#read-write-el');
-const oralCom = document.querySelector('#oral-com-el');
-const _21st = document.querySelector('#twenty-first-el');
-const pResearchEl = document.querySelector('#p-research-el');
-const eLibraryEl = document.querySelector('#e-library-el');
+const bannerEl = document.querySelector("#banner-el");
+const creativeWritingEl = document.querySelector("#creative-writing-el");
+const readWriteEl = document.querySelector("#read-write-el");
+const oralCom = document.querySelector("#oral-com-el");
+const _21st = document.querySelector("#twenty-first-el");
+const pResearchEl = document.querySelector("#p-research-el");
+const eLibraryEl = document.querySelector("#e-library-el");
 
 let isToggled = false;
-let defaultContent = contentWrapperEl
+let defaultContent = contentWrapperEl;
 
-eappEl.addEventListener('click', function () {
-    defaultPageContent('Welcome to EAPP!');
-    bannerEl.textContent = 'Welcome to EAPP!'
-    // event.preventDefault();
-    resetHighlightState();
-    eappEl.classList.toggle('bg-blue');
-
-
-})
-
-readWriteEl.addEventListener('click', function () {
-  defaultPageContent('Reading and Writing!');
-    bannerEl.textContent = 'Reading and Writing!'
-    // event.preventDefault();
-    resetHighlightState();
-    readWriteEl.classList.toggle('bg-blue');
-    
-
-})
-oralCom.addEventListener('click', function () {
-  defaultPageContent('Oral Communication!');
-  bannerEl.textContent = 'Oral Communication'
+eappEl.addEventListener("click", function () {
+  defaultPageContent("Welcome to EAPP!");
+  bannerEl.textContent = "Welcome to EAPP!";
   // event.preventDefault();
   resetHighlightState();
-  oralCom.classList.toggle('bg-blue');
-
-
-})
-_21st.addEventListener('click', function () {
-  defaultPageContent('21st Century Literature!');
-  bannerEl.textContent = '21st Century Literature'
-  // event.preventDefault();
-  resetHighlightState();
-  _21st.classList.toggle('bg-blue');
-
-
-})
-pResearchEl.addEventListener('click', function () {
-  defaultPageContent('Practical Research!');
-  bannerEl.textContent = 'Practical Research'
-  // event.preventDefault();
-  resetHighlightState();
-  pResearchEl.classList.toggle('bg-blue');
-
-
-})
-eLibraryEl.addEventListener('click', function () {
-  defaultPageContent('Welcome to E-Library!');
-  bannerEl.textContent = 'Welcome to E-Library!'
-  // event.preventDefault();
-  resetHighlightState();
-  eLibraryEl.classList.toggle('bg-blue');
-
-
-})
-
-creativeWritingEl.addEventListener('click', function () {
-  resetHighlightState();
-    creativeWritingEl.classList.add('bg-blue');
-    creativeWritingContent();
-
+  eappEl.classList.toggle("bg-blue");
 });
 
-function resetHighlightState(){
-  eappEl.classList.remove('bg-blue');
-  creativeWritingEl.classList.remove('bg-blue');
-  readWriteEl.classList.remove('bg-blue');
-  oralCom.classList.remove('bg-blue');
-  _21st.classList.remove('bg-blue');
-  pResearchEl.classList.remove('bg-blue');
-  eLibraryEl.classList.remove('bg-blue');
+readWriteEl.addEventListener("click", function () {
+  defaultPageContent("Reading and Writing!");
+  bannerEl.textContent = "Reading and Writing!";
+  // event.preventDefault();
+  resetHighlightState();
+  readWriteEl.classList.toggle("bg-blue");
+});
+oralCom.addEventListener("click", function () {
+  defaultPageContent("Oral Communication!");
+  bannerEl.textContent = "Oral Communication";
+  // event.preventDefault();
+  resetHighlightState();
+  oralCom.classList.toggle("bg-blue");
+});
+_21st.addEventListener("click", function () {
+  defaultPageContent("21st Century Literature!");
+  bannerEl.textContent = "21st Century Literature";
+  // event.preventDefault();
+  resetHighlightState();
+  _21st.classList.toggle("bg-blue");
+});
+pResearchEl.addEventListener("click", function () {
+  defaultPageContent("Practical Research!");
+  bannerEl.textContent = "Practical Research";
+  // event.preventDefault();
+  resetHighlightState();
+  pResearchEl.classList.toggle("bg-blue");
+});
+eLibraryEl.addEventListener("click", function () {
+  defaultPageContent("Welcome to E-Library!");
+  bannerEl.textContent = "Welcome to E-Library!";
+  // event.preventDefault();
+  resetHighlightState();
+  eLibraryEl.classList.toggle("bg-blue");
+});
+
+creativeWritingEl.addEventListener("click", function () {
+  resetHighlightState();
+  creativeWritingEl.classList.add("bg-blue");
+  creativeWritingContent();
+});
+
+function resetHighlightState() {
+  eappEl.classList.remove("bg-blue");
+  creativeWritingEl.classList.remove("bg-blue");
+  readWriteEl.classList.remove("bg-blue");
+  oralCom.classList.remove("bg-blue");
+  _21st.classList.remove("bg-blue");
+  pResearchEl.classList.remove("bg-blue");
+  eLibraryEl.classList.remove("bg-blue");
 }
 
-
-function defaultPageContent(str){
+function defaultPageContent(str) {
   contentWrapperEl.innerHTML = `
   <div class="grid grid-cols-1 gap-4 mb-4 ml">
   <div
@@ -311,9 +297,9 @@ function defaultPageContent(str){
     </p>
   </div>
 </div>
-  `
+  `;
 }
-function creativeWritingContent(){
+function creativeWritingContent() {
   contentWrapperEl.innerHTML = `
   <form>
   <div
@@ -545,6 +531,7 @@ function creativeWritingContent(){
     </div>
     <div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
       <label for="editor" class="sr-only">Publish post</label>
+      <grammarly-editor-plugin>
       <textarea
         id="editor"
         rows="8"
@@ -553,7 +540,11 @@ function creativeWritingContent(){
         required
         spellcheck="true"
       ></textarea>
+      </grammarly-editor-plugin>
+      <div id="words"></div>
+</div>
     </div>
+    
   </div>
   <button
     type="submit"
